@@ -1,0 +1,15 @@
+version: '3'
+services:
+  # Veritaban? hizmeti, PostgreSQL veritaban?n? ba?lat?r.
+  db:
+    image: postgres:latest  # Resmi PostgreSQL imaj?
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: toor
+    ports:
+      - "5432:5432"  # PostgreSQL veritaban?na d??ar?dan eri?im sa?lar.
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
