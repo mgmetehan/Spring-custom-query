@@ -35,4 +35,62 @@ public class UserService {
         List<User> activeUsers = userRepository.findActiveUsersNative();
         return UserDto.toDtoList(activeUsers);
     }
+
+    public List<UserDto> findByUsernameAndActiveTrueJPA(String username) {
+        List<User> activeUsers = userRepository.findByUsernameAndActiveTrue(username);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findByUsernameAndActiveTrueJPQL(String username) {
+        List<User> activeUsers = userRepository.findActiveUsersByUsernameJPQL(username);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findByUsernameAndActiveTrueNative(String username) {
+        List<User> activeUsers = userRepository.findActiveUsersByUsernameNative(username);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findBySalaryGreaterThanJPA(long salary) {
+        List<User> activeUsers = userRepository.findBySalaryGreaterThan(salary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+
+    public List<UserDto> findBySalaryGreaterThanJPQL(long salary) {
+        List<User> activeUsers = userRepository.findUsersWithSalaryGreaterThanJPQL(salary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findBySalaryGreaterThanNative(long salary) {
+        List<User> activeUsers = userRepository.findUsersWithSalaryGreaterThanNative(salary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findBySalaryBetweenJPA(long minSalary, long maxSalary) {
+        List<User> activeUsers = userRepository.findBySalaryBetween(minSalary, maxSalary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findBySalaryBetweenJPQL(long minSalary, long maxSalary) {
+        List<User> activeUsers = userRepository.findUsersWithSalaryBetweenJPQL(minSalary, maxSalary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public List<UserDto> findBySalaryBetweenNative(long minSalary, long maxSalary) {
+        List<User> activeUsers = userRepository.findUsersWithSalaryBetweenNative(minSalary, maxSalary);
+        return UserDto.toDtoList(activeUsers);
+    }
+
+    public long countActiveUsersJPA() {
+        return userRepository.countByActiveTrue();
+    }
+
+    public long countActiveUsersJPQL() {
+        return userRepository.countActiveUsersJPQL();
+    }
+
+    public long countActiveUsersNative() {
+        return userRepository.countActiveUsersNative();
+    }
 }
