@@ -5,6 +5,7 @@ import com.mgmetehan.customquery.model.User;
 import com.mgmetehan.customquery.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,34 +55,33 @@ public class UserController {
         return userService.findByUsernameAndActiveTrueNative(username);
     }
 
-   //List<User> findBySalaryGreaterThan(long salary)
-    @GetMapping("/jpa/findBySalaryGreaterThan")
-    public List<UserDto> findBySalaryGreaterThanJPA(@RequestParam long salary) {
+    @GetMapping("/jpa/findBySalaryGreaterThan/{salary}")
+    public List<UserDto> findBySalaryGreaterThanJPA(@PathVariable long salary) {
         return userService.findBySalaryGreaterThanJPA(salary);
     }
 
-    @GetMapping("/jpql/findBySalaryGreaterThan")
-    public List<UserDto> findBySalaryGreaterThanJPQL(@RequestParam long salary) {
+    @GetMapping("/jpql/findBySalaryGreaterThan/{salary}")
+    public List<UserDto> findBySalaryGreaterThanJPQL(@PathVariable long salary) {
         return userService.findBySalaryGreaterThanJPQL(salary);
     }
 
-    @GetMapping("/native/findBySalaryGreaterThan")
-    public List<UserDto> findBySalaryGreaterThanNative(@RequestParam long salary) {
+    @GetMapping("/native/findBySalaryGreaterThan/{salary}")
+    public List<UserDto> findBySalaryGreaterThanNative(@PathVariable long salary) {
         return userService.findBySalaryGreaterThanNative(salary);
     }
 
-    @GetMapping("/jpa/findBySalaryBetween")
-    public List<UserDto> findBySalaryBetweenJPA(@RequestParam long minSalary, @RequestParam long maxSalary) {
+    @GetMapping("/jpa/findBySalaryBetween/{minSalary}/{maxSalary}")
+    public List<UserDto> findBySalaryBetweenJPA(@PathVariable long minSalary, @PathVariable long maxSalary) {
         return userService.findBySalaryBetweenJPA(minSalary, maxSalary);
     }
 
-    @GetMapping("/jpql/findBySalaryBetween")
-    public List<UserDto> findBySalaryBetweenJPQL(@RequestParam long minSalary, @RequestParam long maxSalary) {
+    @GetMapping("/jpql/findBySalaryBetween/{minSalary}/{maxSalary}")
+    public List<UserDto> findBySalaryBetweenJPQL(@PathVariable long minSalary, @PathVariable long maxSalary) {
         return userService.findBySalaryBetweenJPQL(minSalary, maxSalary);
     }
 
-    @GetMapping("/native/findBySalaryBetween")
-    public List<UserDto> findBySalaryBetweenNative(@RequestParam long minSalary, @RequestParam long maxSalary) {
+    @GetMapping("/native/findBySalaryBetween/{minSalary}/{maxSalary}")
+    public List<UserDto> findBySalaryBetweenNative(@PathVariable long minSalary, @PathVariable long maxSalary) {
         return userService.findBySalaryBetweenNative(minSalary, maxSalary);
     }
 
@@ -99,7 +99,4 @@ public class UserController {
     public long countActiveUsersNative() {
         return userService.countActiveUsersNative();
     }
-
-
-
 }
