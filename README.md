@@ -1,4 +1,11 @@
-# Spring-custom-query
+# Mastering Custom Queries in Spring Boot ~ JPA | JPQL | Native Query
+
+# Sunum Kaydi:
+[Mastering Custom Queries in Spring Boot ~ JPA | JPQL | Native Query
+](https://youtu.be/6ZPi0X3ZtYg?si=NZdpv6ICUbxclFhW)
+
+    https://youtu.be/6ZPi0X3ZtYg?si=NZdpv6ICUbxclFhW
+
 
 1. **JPA (Java Persistence API)**:
     - JPA, Java uygulamalarinda iliskisel verileri yonetmek icin bir Java spesifikasyonudur.
